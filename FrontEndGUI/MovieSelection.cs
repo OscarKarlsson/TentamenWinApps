@@ -25,6 +25,15 @@ namespace FrontEndGUI
         {
             List<Movie> movies = getData.GetMovies();
             toolTip1.SetToolTip(picShining, ReturnDesc("The Shining", movies));
+            toolTip1.SetToolTip(picAlien, ReturnDesc("Aliens", movies));
+            toolTip1.SetToolTip(picElm, ReturnDesc("A Nightmare on Elm Street", movies));
+            toolTip1.SetToolTip(picEvilDead, ReturnDesc("Evil Dead 2: Dead by Dawn", movies));
+            toolTip1.SetToolTip(picFog, ReturnDesc("The Fog", movies));
+            toolTip1.SetToolTip(picPossession, ReturnDesc("Possession", movies));
+            toolTip1.SetToolTip(picTenebre, ReturnDesc("Tenebre", movies));
+            toolTip1.SetToolTip(picTexas, ReturnDesc("The Texas Chainsaw Massacre Part 2", movies));
+            toolTip1.SetToolTip(picThing, ReturnDesc("The Thing", movies));
+            toolTip1.SetToolTip(picVideodrome, ReturnDesc("Videodrome", movies));
         }
         private string ReturnDesc(string movieName, List<Movie> movies)
         {
