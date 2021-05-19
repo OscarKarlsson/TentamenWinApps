@@ -9,12 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Backend;
 using Backend.Entities;
+using FrontEndGUI.Events;
 
 namespace FrontEndGUI
 {
     public partial class MovieSelection : Form
     {
-        DataGetter getData = new Backend.DataGetter();
+        public event EventHandler<FormEventArgs> formEvent;
+        private FormEventArgs EventArgs = new FormEventArgs();
+        DataGetter getData = new DataGetter();
         protected override bool ScaleChildren { get; } = false;
         public MovieSelection()
         {
@@ -46,9 +49,12 @@ namespace FrontEndGUI
             }
             return "N/A";
         }
+
         private void picShining_Click(object sender, EventArgs e)
         {
-
+            
+            
+            formEvent.Invoke(this, EventArgs);
         }
     }
 }

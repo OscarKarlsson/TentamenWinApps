@@ -189,8 +189,6 @@ namespace FrontEndGUI
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox picShining;
         private System.Windows.Forms.PictureBox picAlien;
         private System.Windows.Forms.PictureBox picElm;
         private System.Windows.Forms.PictureBox picEvilDead;
@@ -201,5 +199,6 @@ namespace FrontEndGUI
         private System.Windows.Forms.PictureBox picThing;
         private System.Windows.Forms.PictureBox picVideodrome;
         private System.Windows.Forms.ToolTip toolTip1;
+        internal System.Windows.Forms.PictureBox picShining;
     }
 }

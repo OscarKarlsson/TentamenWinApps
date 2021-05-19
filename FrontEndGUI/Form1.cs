@@ -1,4 +1,5 @@
 ﻿using Backend.Entities;
+using FrontEndGUI.Events;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,8 +12,10 @@ using System.Windows.Forms;
 
 namespace FrontEndGUI
 {
-    public partial class Form1 : Form
+    public partial  class Form1 : Form
     {
+        SeatSelection childFormSeat = new SeatSelection();
+        MovieSelection childFormMovie = new MovieSelection();
         static Random rnd = new Random();
         CinemaContext db = new CinemaContext("CinemaContext");
         public Form1()
@@ -20,6 +23,7 @@ namespace FrontEndGUI
             InitializeComponent();
             CuztomizeDesign();
             if (db.Database.CreateIfNotExists()) CreateData();
+            childFormMovie.formEvent += OpenChildFormFromChildForm;
         }
         private void CuztomizeDesign()
         {
@@ -247,7 +251,7 @@ namespace FrontEndGUI
         #region BookingSubMenu
         private void btnTickets_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new MovieSelection());
+            OpenChildForm(childFormMovie);
             HideSubMenu();
         }
 
@@ -293,11 +297,11 @@ namespace FrontEndGUI
             HideSubMenu();
         }
         #endregion
-        private Form activeForm = null;
-        private void OpenChildForm(Form childForm)
+        internal Form activeForm = null;
+        internal void OpenChildForm(Form childForm)
         {
             if (activeForm != null)
-                activeForm.Close();
+                activeForm.Hide();
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -307,5 +311,11 @@ namespace FrontEndGUI
             childForm.BringToFront();
             childForm.Show();
         }
+        internal void OpenChildFormFromChildForm(object sender, FormEventArgs args)
+        {
+            OpenChildForm(childFormSeat);
+        }
+        
+        
     }
 }

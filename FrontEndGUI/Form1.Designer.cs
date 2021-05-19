@@ -44,8 +44,8 @@ namespace FrontEndGUI
             this.btnTickets = new System.Windows.Forms.Button();
             this.btnBooking = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
-            this.panelChildForm = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelChildForm = new System.Windows.Forms.Panel();
             this.panelSideMenu.SuspendLayout();
             this.panelSubHistory.SuspendLayout();
             this.panelSubCinema.SuspendLayout();
@@ -257,15 +257,6 @@ namespace FrontEndGUI
             this.panelLogo.Size = new System.Drawing.Size(250, 125);
             this.panelLogo.TabIndex = 0;
             // 
-            // panelChildForm
-            // 
-            this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChildForm.Location = new System.Drawing.Point(250, 0);
-            this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(803, 610);
-            this.panelChildForm.TabIndex = 1;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
@@ -276,6 +267,15 @@ namespace FrontEndGUI
             this.pictureBox1.Size = new System.Drawing.Size(250, 125);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // panelChildForm
+            // 
+            this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelChildForm.Location = new System.Drawing.Point(250, 0);
+            this.panelChildForm.Name = "panelChildForm";
+            this.panelChildForm.Size = new System.Drawing.Size(803, 610);
+            this.panelChildForm.TabIndex = 1;
             // 
             // Form1
             // 
