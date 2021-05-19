@@ -30,6 +30,9 @@ namespace FrontEndGUI
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.listOrder = new System.Windows.Forms.ListView();
+            this.movieName = new System.Windows.Forms.ColumnHeader();
+            this.seatId = new System.Windows.Forms.ColumnHeader();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btn5 = new FontAwesome.Sharp.IconButton();
@@ -52,9 +55,6 @@ namespace FrontEndGUI
             this.btn18 = new FontAwesome.Sharp.IconButton();
             this.btn17 = new FontAwesome.Sharp.IconButton();
             this.btn16 = new FontAwesome.Sharp.IconButton();
-            this.listOrder = new System.Windows.Forms.ListView();
-            this.movieName = new System.Windows.Forms.ColumnHeader();
-            this.seatId = new System.Windows.Forms.ColumnHeader();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -68,6 +68,31 @@ namespace FrontEndGUI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(210, 610);
             this.panel1.TabIndex = 0;
+            // 
+            // listOrder
+            // 
+            this.listOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.listOrder.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.movieName,
+            this.seatId});
+            this.listOrder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listOrder.ForeColor = System.Drawing.Color.Gainsboro;
+            this.listOrder.HideSelection = false;
+            this.listOrder.Location = new System.Drawing.Point(0, 0);
+            this.listOrder.Name = "listOrder";
+            this.listOrder.Size = new System.Drawing.Size(210, 610);
+            this.listOrder.TabIndex = 0;
+            this.listOrder.UseCompatibleStateImageBehavior = false;
+            this.listOrder.View = System.Windows.Forms.View.Details;
+            // 
+            // movieName
+            // 
+            this.movieName.Text = "Movie";
+            this.movieName.Width = 150;
+            // 
+            // seatId
+            // 
+            this.seatId.Text = "Seat";
             // 
             // panel2
             // 
@@ -389,30 +414,6 @@ namespace FrontEndGUI
             this.btn16.UseVisualStyleBackColor = true;
             this.btn16.Click += new System.EventHandler(this.btn16_Click);
             // 
-            // listOrder
-            // 
-            this.listOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.listOrder.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.movieName,
-            this.seatId});
-            this.listOrder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listOrder.HideSelection = false;
-            this.listOrder.Location = new System.Drawing.Point(0, 0);
-            this.listOrder.Name = "listOrder";
-            this.listOrder.Size = new System.Drawing.Size(210, 610);
-            this.listOrder.TabIndex = 0;
-            this.listOrder.UseCompatibleStateImageBehavior = false;
-            this.listOrder.View = System.Windows.Forms.View.Details;
-            // 
-            // movieName
-            // 
-            this.movieName.Text = "Movie";
-            this.movieName.Width = 150;
-            // 
-            // seatId
-            // 
-            this.seatId.Text = "Seat";
-            // 
             // SeatSelection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -456,8 +457,8 @@ namespace FrontEndGUI
         private FontAwesome.Sharp.IconButton btn17;
         private FontAwesome.Sharp.IconButton btn16;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListView listOrder;
         private System.Windows.Forms.ColumnHeader movieName;
         private System.Windows.Forms.ColumnHeader seatId;
+        internal System.Windows.Forms.ListView listOrder;
     }
 }

@@ -50,7 +50,11 @@ namespace FrontEndGUI
                 Order.Reservations.Add(new EventReservation { EventId = Order.EventId, SeatId = 1 });
                 listOrder.Items.Add(new ListViewItem(new string[] { Order.MovieName, "1" }));
             }
-            
+            else if (btn1.IconColor == Color.Red)
+            {
+                btn1.IconColor = Color.Green;
+                listOrder.Items.Remove(new ListViewItem(new string[] { Order.MovieName, "1" }));
+            }
         }
 
         private void btn2_Click(object sender, EventArgs e)
