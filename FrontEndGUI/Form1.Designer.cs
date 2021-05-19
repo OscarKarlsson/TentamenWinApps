@@ -271,6 +271,8 @@ namespace FrontEndGUI
             // panelChildForm
             // 
             this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.panelChildForm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelChildForm.BackgroundImage")));
+            this.panelChildForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(250, 0);
             this.panelChildForm.Name = "panelChildForm";
@@ -311,7 +313,6 @@ namespace FrontEndGUI
         private System.Windows.Forms.Panel panelSubBooking;
         private System.Windows.Forms.Button btnChangeBooking;
         private System.Windows.Forms.Button btnTickets;
-        private System.Windows.Forms.Button btnMedia;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Button btnBooking;
         private System.Windows.Forms.Panel panelChildForm;

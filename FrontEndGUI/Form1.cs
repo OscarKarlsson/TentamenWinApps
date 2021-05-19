@@ -16,6 +16,7 @@ namespace FrontEndGUI
     {
         SeatSelection childFormSeat = new SeatSelection();
         MovieSelection childFormMovie = new MovieSelection();
+        TimeSelection childFormTime = new TimeSelection();
         static Random rnd = new Random();
         CinemaContext db = new CinemaContext("CinemaContext");
         public Form1()
@@ -23,7 +24,8 @@ namespace FrontEndGUI
             InitializeComponent();
             CuztomizeDesign();
             if (db.Database.CreateIfNotExists()) CreateData();
-            childFormMovie.formEvent += OpenChildFormFromChildForm;
+            childFormMovie.formEvent += OpenChildFormTime;
+            childFormTime.formEvent += OpenChildFormSeat;
         }
         private void CuztomizeDesign()
         {
@@ -52,11 +54,11 @@ namespace FrontEndGUI
         #region CreateDataRegion
         private void CreateData()
         {
-            using (var context = new CinemaContext("CinemaContext"))
+            using (db)
             {
-                CreateMovies(context);
-                CreateAuditoriums(context);
-                CreateEvents(context);
+                CreateMovies(db);
+                CreateAuditoriums(db);
+                CreateEvents(db);
             }
 
         }
@@ -311,11 +313,16 @@ namespace FrontEndGUI
             childForm.BringToFront();
             childForm.Show();
         }
-        internal void OpenChildFormFromChildForm(object sender, FormEventArgs args)
+        internal void OpenChildFormSeat(object sender, FormEventArgs args)
         {
             OpenChildForm(childFormSeat);
+            childFormSeat.LoadSeatButtons();
         }
-        
-        
+        internal void OpenChildFormTime(object sender, FormEventArgs args)
+        {
+            OpenChildForm(childFormTime);
+            childFormTime.LoadButtons();
+        }
+
     }
 }

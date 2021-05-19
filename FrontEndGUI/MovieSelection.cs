@@ -24,21 +24,22 @@ namespace FrontEndGUI
             InitializeComponent();
             SetToolTips();
         }
+        List<Movie> movies = new List<Movie>();
         private void SetToolTips()
         {
-            List<Movie> movies = getData.GetMovies();
-            toolTip1.SetToolTip(picShining, ReturnDesc("The Shining", movies));
-            toolTip1.SetToolTip(picAlien, ReturnDesc("Aliens", movies));
-            toolTip1.SetToolTip(picElm, ReturnDesc("A Nightmare on Elm Street", movies));
-            toolTip1.SetToolTip(picEvilDead, ReturnDesc("Evil Dead 2: Dead by Dawn", movies));
-            toolTip1.SetToolTip(picFog, ReturnDesc("The Fog", movies));
-            toolTip1.SetToolTip(picPossession, ReturnDesc("Possession", movies));
-            toolTip1.SetToolTip(picTenebre, ReturnDesc("Tenebre", movies));
-            toolTip1.SetToolTip(picTexas, ReturnDesc("The Texas Chainsaw Massacre Part 2", movies));
-            toolTip1.SetToolTip(picThing, ReturnDesc("The Thing", movies));
-            toolTip1.SetToolTip(picVideodrome, ReturnDesc("Videodrome", movies));
+            movies = getData.GetMovies();
+            toolTip1.SetToolTip(picShining, ReturnDesc("The Shining"));
+            toolTip1.SetToolTip(picAlien, ReturnDesc("Aliens"));
+            toolTip1.SetToolTip(picElm, ReturnDesc("A Nightmare on Elm Street"));
+            toolTip1.SetToolTip(picEvilDead, ReturnDesc("Evil Dead 2: Dead by Dawn"));
+            toolTip1.SetToolTip(picFog, ReturnDesc("The Fog"));
+            toolTip1.SetToolTip(picPossession, ReturnDesc("Possession"));
+            toolTip1.SetToolTip(picTenebre, ReturnDesc("Tenebre"));
+            toolTip1.SetToolTip(picTexas, ReturnDesc("The Texas Chainsaw Massacre Part 2"));
+            toolTip1.SetToolTip(picThing, ReturnDesc("The Thing"));
+            toolTip1.SetToolTip(picVideodrome, ReturnDesc("Videodrome"));
         }
-        private string ReturnDesc(string movieName, List<Movie> movies)
+        private string ReturnDesc(string movieName)
         {
             for (int i = 0; i < movies.Count; i++)
             {
@@ -52,8 +53,61 @@ namespace FrontEndGUI
 
         private void picShining_Click(object sender, EventArgs e)
         {
-            
-            
+            Order.MovieName = "The Shining";
+            formEvent.Invoke(this, EventArgs);
+        }
+
+        private void picAlien_Click(object sender, EventArgs e)
+        {
+            Order.MovieName = "Aliens";
+            formEvent.Invoke(this, EventArgs);
+        }
+
+        private void picElm_Click(object sender, EventArgs e)
+        {
+            Order.MovieName = "A Nightmare on Elm Street";
+            formEvent.Invoke(this, EventArgs);
+        }
+
+        private void picEvilDead_Click(object sender, EventArgs e)
+        {
+            Order.MovieName = "Evil Dead 2: Dead by Dawn";
+            formEvent.Invoke(this, EventArgs);
+        }
+
+        private void picFog_Click(object sender, EventArgs e)
+        {
+            Order.MovieName = "The Fog";
+            formEvent.Invoke(this, EventArgs);
+        }
+
+        private void picPossession_Click(object sender, EventArgs e)
+        {
+            Order.MovieName = "Possession";
+            formEvent.Invoke(this, EventArgs);
+        }
+
+        private void picTenebre_Click(object sender, EventArgs e)
+        {
+            Order.MovieName = "Tenebre";
+            formEvent.Invoke(this, EventArgs);
+        }
+
+        private void picTexas_Click(object sender, EventArgs e)
+        {
+            Order.MovieName = "The Texas Chainsaw Massacre Part 2";
+            formEvent.Invoke(this, EventArgs);
+        }
+
+        private void picThing_Click(object sender, EventArgs e)
+        {
+            Order.MovieName = "The Thing";
+            formEvent.Invoke(this, EventArgs);
+        }
+
+        private void picVideodrome_Click(object sender, EventArgs e)
+        {
+            Order.MovieName = "Videodrome";
             formEvent.Invoke(this, EventArgs);
         }
     }

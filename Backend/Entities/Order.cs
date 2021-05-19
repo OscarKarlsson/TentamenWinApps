@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace Backend.Entities
 {
-    public class Order
+    public static class Order
     {
-        public Customer Customer { get; set; }
-        public List<EventReservation> Reservations { get; set; }
+        public static Customer Customer { get; set; }
+        public static List<EventReservation> Reservations { get; set; }
+
+        public static string MovieName { get; set; }
+        public static int EventId { get; set; }
     }
 }

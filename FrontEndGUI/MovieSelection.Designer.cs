@@ -74,6 +74,7 @@ namespace FrontEndGUI
             this.picAlien.Size = new System.Drawing.Size(125, 172);
             this.picAlien.TabIndex = 1;
             this.picAlien.TabStop = false;
+            this.picAlien.Click += new System.EventHandler(this.picAlien_Click);
             // 
             // picElm
             // 
@@ -84,6 +85,7 @@ namespace FrontEndGUI
             this.picElm.Size = new System.Drawing.Size(125, 172);
             this.picElm.TabIndex = 2;
             this.picElm.TabStop = false;
+            this.picElm.Click += new System.EventHandler(this.picElm_Click);
             // 
             // picEvilDead
             // 
@@ -94,6 +96,7 @@ namespace FrontEndGUI
             this.picEvilDead.Size = new System.Drawing.Size(125, 172);
             this.picEvilDead.TabIndex = 3;
             this.picEvilDead.TabStop = false;
+            this.picEvilDead.Click += new System.EventHandler(this.picEvilDead_Click);
             // 
             // picFog
             // 
@@ -104,6 +107,7 @@ namespace FrontEndGUI
             this.picFog.Size = new System.Drawing.Size(125, 172);
             this.picFog.TabIndex = 4;
             this.picFog.TabStop = false;
+            this.picFog.Click += new System.EventHandler(this.picFog_Click);
             // 
             // picPossession
             // 
@@ -114,6 +118,7 @@ namespace FrontEndGUI
             this.picPossession.Size = new System.Drawing.Size(125, 172);
             this.picPossession.TabIndex = 5;
             this.picPossession.TabStop = false;
+            this.picPossession.Click += new System.EventHandler(this.picPossession_Click);
             // 
             // picTenebre
             // 
@@ -124,6 +129,7 @@ namespace FrontEndGUI
             this.picTenebre.Size = new System.Drawing.Size(125, 172);
             this.picTenebre.TabIndex = 6;
             this.picTenebre.TabStop = false;
+            this.picTenebre.Click += new System.EventHandler(this.picTenebre_Click);
             // 
             // picTexas
             // 
@@ -134,6 +140,7 @@ namespace FrontEndGUI
             this.picTexas.Size = new System.Drawing.Size(125, 172);
             this.picTexas.TabIndex = 7;
             this.picTexas.TabStop = false;
+            this.picTexas.Click += new System.EventHandler(this.picTexas_Click);
             // 
             // picThing
             // 
@@ -144,6 +151,7 @@ namespace FrontEndGUI
             this.picThing.Size = new System.Drawing.Size(125, 172);
             this.picThing.TabIndex = 8;
             this.picThing.TabStop = false;
+            this.picThing.Click += new System.EventHandler(this.picThing_Click);
             // 
             // picVideodrome
             // 
@@ -154,6 +162,7 @@ namespace FrontEndGUI
             this.picVideodrome.Size = new System.Drawing.Size(125, 172);
             this.picVideodrome.TabIndex = 9;
             this.picVideodrome.TabStop = false;
+            this.picVideodrome.Click += new System.EventHandler(this.picVideodrome_Click);
             // 
             // MovieSelection
             // 
