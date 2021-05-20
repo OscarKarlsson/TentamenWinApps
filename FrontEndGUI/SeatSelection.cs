@@ -20,40 +20,51 @@ namespace FrontEndGUI
         {
             InitializeComponent();
         }
-
+        internal void LoadMoviePic()
+        {
+            using (var context = new CinemaContext("CinemaContext"))
+            {
+                var movie = context.Movies.Where(m => m.Name == Order.MovieName).First();
+                picMovie.BackgroundImage = Image.FromFile($@"Pics\{movie.FilePath}");
+            }
+            
+            
+        }
         internal void LoadSeatButtons()
         {
             var seat = GetData.GetSeats();
             int tempName;
             foreach (Control c in Controls)
             {
-                if (c is Button)
+                if (c is FontAwesome.Sharp.IconButton)
                 {
                     tempName = int.Parse(c.Name.Remove(0, 3));
                     foreach (var item in seat)
                     {
                         if (item.SeatNumber == tempName)
                         {
-                            c.BackColor = Color.Red;
                             c.Enabled = false;
                         }
                     }
                 }
             }
         }
+        internal void LoadViewItems()
+        {
 
+        }
+        ListViewItem item1 = new ListViewItem(new string[] { Order.MovieName, "1" });
         private void btn1_Click(object sender, EventArgs e)
         {
+            
             if (btn1.IconColor == Color.Green)
-            {
+            {                
                 btn1.IconColor = Color.Red;
                 Order.Reservations.Add(new EventReservation { EventId = Order.EventId, SeatId = 1 });
-                listOrder.Items.Add(new ListViewItem(new string[] { Order.MovieName, "1" }));
             }
             else if (btn1.IconColor == Color.Red)
             {
                 btn1.IconColor = Color.Green;
-                listOrder.Items.Remove(new ListViewItem(new string[] { Order.MovieName, "1" }));
             }
         }
 
@@ -150,6 +161,17 @@ namespace FrontEndGUI
         private void btn20_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnContinue_Click(object sender, EventArgs e)
+        {
+            foreach (Control c in Controls)
+            {
+                if (c is FontAwesome.Sharp.IconButton)
+                {
+                    if (((FontAwesome.Sharp.IconButton)c).IconColor == Color.Red)
+                }
+            }
         }
     }
 }

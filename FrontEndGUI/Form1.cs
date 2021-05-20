@@ -317,7 +317,7 @@ namespace FrontEndGUI
         {
             OpenChildForm(childFormSeat);
             childFormSeat.LoadSeatButtons();
-            childFormSeat.listOrder.Items.Clear();
+            childFormSeat.LoadMoviePic();
         }
         internal void OpenChildFormTime(object sender, FormEventArgs args)
         {

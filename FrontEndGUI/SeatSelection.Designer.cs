@@ -29,11 +29,10 @@ namespace FrontEndGUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.listOrder = new System.Windows.Forms.ListView();
-            this.movieName = new System.Windows.Forms.ColumnHeader();
-            this.seatId = new System.Windows.Forms.ColumnHeader();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SeatSelection));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnContinue = new System.Windows.Forms.Button();
+            this.picMovie = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btn5 = new FontAwesome.Sharp.IconButton();
             this.btn4 = new FontAwesome.Sharp.IconButton();
@@ -55,48 +54,15 @@ namespace FrontEndGUI
             this.btn18 = new FontAwesome.Sharp.IconButton();
             this.btn17 = new FontAwesome.Sharp.IconButton();
             this.btn16 = new FontAwesome.Sharp.IconButton();
-            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picMovie)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.panel1.Controls.Add(this.listOrder);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(593, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(210, 610);
-            this.panel1.TabIndex = 0;
-            // 
-            // listOrder
-            // 
-            this.listOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
-            this.listOrder.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.movieName,
-            this.seatId});
-            this.listOrder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listOrder.ForeColor = System.Drawing.Color.Gainsboro;
-            this.listOrder.HideSelection = false;
-            this.listOrder.Location = new System.Drawing.Point(0, 0);
-            this.listOrder.Name = "listOrder";
-            this.listOrder.Size = new System.Drawing.Size(210, 610);
-            this.listOrder.TabIndex = 0;
-            this.listOrder.UseCompatibleStateImageBehavior = false;
-            this.listOrder.View = System.Windows.Forms.View.Details;
-            // 
-            // movieName
-            // 
-            this.movieName.Text = "Movie";
-            this.movieName.Width = 150;
-            // 
-            // seatId
-            // 
-            this.seatId.Text = "Seat";
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.panel2.Controls.Add(this.btnContinue);
+            this.panel2.Controls.Add(this.picMovie);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.btn5);
             this.panel2.Controls.Add(this.btn4);
@@ -121,14 +87,39 @@ namespace FrontEndGUI
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(593, 610);
+            this.panel2.Size = new System.Drawing.Size(803, 610);
             this.panel2.TabIndex = 1;
+            // 
+            // btnContinue
+            // 
+            this.btnContinue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.btnContinue.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnContinue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnContinue.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnContinue.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnContinue.Location = new System.Drawing.Point(635, 519);
+            this.btnContinue.Name = "btnContinue";
+            this.btnContinue.Size = new System.Drawing.Size(156, 79);
+            this.btnContinue.TabIndex = 22;
+            this.btnContinue.Text = "Continue";
+            this.btnContinue.UseVisualStyleBackColor = false;
+            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
+            // 
+            // picMovie
+            // 
+            this.picMovie.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picMovie.BackgroundImage")));
+            this.picMovie.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picMovie.Location = new System.Drawing.Point(12, 12);
+            this.picMovie.Name = "picMovie";
+            this.picMovie.Size = new System.Drawing.Size(143, 195);
+            this.picMovie.TabIndex = 21;
+            this.picMovie.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(258, 470);
+            this.label1.Location = new System.Drawing.Point(345, 469);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 29);
             this.label1.TabIndex = 20;
@@ -141,7 +132,7 @@ namespace FrontEndGUI
             this.btn5.IconChar = FontAwesome.Sharp.IconChar.Chair;
             this.btn5.IconColor = System.Drawing.Color.Green;
             this.btn5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn5.Location = new System.Drawing.Point(393, 358);
+            this.btn5.Location = new System.Drawing.Point(480, 357);
             this.btn5.Name = "btn5";
             this.btn5.Size = new System.Drawing.Size(52, 56);
             this.btn5.TabIndex = 19;
@@ -155,7 +146,7 @@ namespace FrontEndGUI
             this.btn4.IconChar = FontAwesome.Sharp.IconChar.Chair;
             this.btn4.IconColor = System.Drawing.Color.Green;
             this.btn4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn4.Location = new System.Drawing.Point(335, 358);
+            this.btn4.Location = new System.Drawing.Point(422, 357);
             this.btn4.Name = "btn4";
             this.btn4.Size = new System.Drawing.Size(52, 56);
             this.btn4.TabIndex = 18;
@@ -169,7 +160,7 @@ namespace FrontEndGUI
             this.btn3.IconChar = FontAwesome.Sharp.IconChar.Chair;
             this.btn3.IconColor = System.Drawing.Color.Green;
             this.btn3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn3.Location = new System.Drawing.Point(277, 358);
+            this.btn3.Location = new System.Drawing.Point(364, 357);
             this.btn3.Name = "btn3";
             this.btn3.Size = new System.Drawing.Size(52, 56);
             this.btn3.TabIndex = 17;
@@ -183,7 +174,7 @@ namespace FrontEndGUI
             this.btn2.IconChar = FontAwesome.Sharp.IconChar.Chair;
             this.btn2.IconColor = System.Drawing.Color.Green;
             this.btn2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn2.Location = new System.Drawing.Point(219, 358);
+            this.btn2.Location = new System.Drawing.Point(306, 357);
             this.btn2.Name = "btn2";
             this.btn2.Size = new System.Drawing.Size(52, 56);
             this.btn2.TabIndex = 16;
@@ -197,7 +188,7 @@ namespace FrontEndGUI
             this.btn1.IconChar = FontAwesome.Sharp.IconChar.Chair;
             this.btn1.IconColor = System.Drawing.Color.Green;
             this.btn1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn1.Location = new System.Drawing.Point(161, 358);
+            this.btn1.Location = new System.Drawing.Point(248, 357);
             this.btn1.Name = "btn1";
             this.btn1.Size = new System.Drawing.Size(52, 56);
             this.btn1.TabIndex = 15;
@@ -211,7 +202,7 @@ namespace FrontEndGUI
             this.btn10.IconChar = FontAwesome.Sharp.IconChar.Chair;
             this.btn10.IconColor = System.Drawing.Color.Green;
             this.btn10.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn10.Location = new System.Drawing.Point(393, 296);
+            this.btn10.Location = new System.Drawing.Point(480, 295);
             this.btn10.Name = "btn10";
             this.btn10.Size = new System.Drawing.Size(52, 56);
             this.btn10.TabIndex = 14;
@@ -225,7 +216,7 @@ namespace FrontEndGUI
             this.btn9.IconChar = FontAwesome.Sharp.IconChar.Chair;
             this.btn9.IconColor = System.Drawing.Color.Green;
             this.btn9.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn9.Location = new System.Drawing.Point(335, 296);
+            this.btn9.Location = new System.Drawing.Point(422, 295);
             this.btn9.Name = "btn9";
             this.btn9.Size = new System.Drawing.Size(52, 56);
             this.btn9.TabIndex = 13;
@@ -239,7 +230,7 @@ namespace FrontEndGUI
             this.btn8.IconChar = FontAwesome.Sharp.IconChar.Chair;
             this.btn8.IconColor = System.Drawing.Color.Green;
             this.btn8.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn8.Location = new System.Drawing.Point(277, 296);
+            this.btn8.Location = new System.Drawing.Point(364, 295);
             this.btn8.Name = "btn8";
             this.btn8.Size = new System.Drawing.Size(52, 56);
             this.btn8.TabIndex = 12;
@@ -253,7 +244,7 @@ namespace FrontEndGUI
             this.btn7.IconChar = FontAwesome.Sharp.IconChar.Chair;
             this.btn7.IconColor = System.Drawing.Color.Green;
             this.btn7.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn7.Location = new System.Drawing.Point(219, 296);
+            this.btn7.Location = new System.Drawing.Point(306, 295);
             this.btn7.Name = "btn7";
             this.btn7.Size = new System.Drawing.Size(52, 56);
             this.btn7.TabIndex = 11;
@@ -267,7 +258,7 @@ namespace FrontEndGUI
             this.btn6.IconChar = FontAwesome.Sharp.IconChar.Chair;
             this.btn6.IconColor = System.Drawing.Color.Green;
             this.btn6.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn6.Location = new System.Drawing.Point(161, 296);
+            this.btn6.Location = new System.Drawing.Point(248, 295);
             this.btn6.Name = "btn6";
             this.btn6.Size = new System.Drawing.Size(52, 56);
             this.btn6.TabIndex = 10;
@@ -281,7 +272,7 @@ namespace FrontEndGUI
             this.btn15.IconChar = FontAwesome.Sharp.IconChar.Chair;
             this.btn15.IconColor = System.Drawing.Color.Green;
             this.btn15.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn15.Location = new System.Drawing.Point(393, 234);
+            this.btn15.Location = new System.Drawing.Point(480, 233);
             this.btn15.Name = "btn15";
             this.btn15.Size = new System.Drawing.Size(52, 56);
             this.btn15.TabIndex = 9;
@@ -295,7 +286,7 @@ namespace FrontEndGUI
             this.btn14.IconChar = FontAwesome.Sharp.IconChar.Chair;
             this.btn14.IconColor = System.Drawing.Color.Green;
             this.btn14.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn14.Location = new System.Drawing.Point(335, 234);
+            this.btn14.Location = new System.Drawing.Point(422, 233);
             this.btn14.Name = "btn14";
             this.btn14.Size = new System.Drawing.Size(52, 56);
             this.btn14.TabIndex = 8;
@@ -309,7 +300,7 @@ namespace FrontEndGUI
             this.btn13.IconChar = FontAwesome.Sharp.IconChar.Chair;
             this.btn13.IconColor = System.Drawing.Color.Green;
             this.btn13.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn13.Location = new System.Drawing.Point(277, 234);
+            this.btn13.Location = new System.Drawing.Point(364, 233);
             this.btn13.Name = "btn13";
             this.btn13.Size = new System.Drawing.Size(52, 56);
             this.btn13.TabIndex = 7;
@@ -323,7 +314,7 @@ namespace FrontEndGUI
             this.btn12.IconChar = FontAwesome.Sharp.IconChar.Chair;
             this.btn12.IconColor = System.Drawing.Color.Green;
             this.btn12.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn12.Location = new System.Drawing.Point(219, 234);
+            this.btn12.Location = new System.Drawing.Point(306, 233);
             this.btn12.Name = "btn12";
             this.btn12.Size = new System.Drawing.Size(52, 56);
             this.btn12.TabIndex = 6;
@@ -337,7 +328,7 @@ namespace FrontEndGUI
             this.btn11.IconChar = FontAwesome.Sharp.IconChar.Chair;
             this.btn11.IconColor = System.Drawing.Color.Green;
             this.btn11.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn11.Location = new System.Drawing.Point(161, 234);
+            this.btn11.Location = new System.Drawing.Point(248, 233);
             this.btn11.Name = "btn11";
             this.btn11.Size = new System.Drawing.Size(52, 56);
             this.btn11.TabIndex = 5;
@@ -351,7 +342,7 @@ namespace FrontEndGUI
             this.btn20.IconChar = FontAwesome.Sharp.IconChar.Chair;
             this.btn20.IconColor = System.Drawing.Color.Green;
             this.btn20.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn20.Location = new System.Drawing.Point(393, 172);
+            this.btn20.Location = new System.Drawing.Point(480, 171);
             this.btn20.Name = "btn20";
             this.btn20.Size = new System.Drawing.Size(52, 56);
             this.btn20.TabIndex = 4;
@@ -365,7 +356,7 @@ namespace FrontEndGUI
             this.btn19.IconChar = FontAwesome.Sharp.IconChar.Chair;
             this.btn19.IconColor = System.Drawing.Color.Green;
             this.btn19.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn19.Location = new System.Drawing.Point(335, 172);
+            this.btn19.Location = new System.Drawing.Point(422, 171);
             this.btn19.Name = "btn19";
             this.btn19.Size = new System.Drawing.Size(52, 56);
             this.btn19.TabIndex = 3;
@@ -379,7 +370,7 @@ namespace FrontEndGUI
             this.btn18.IconChar = FontAwesome.Sharp.IconChar.Chair;
             this.btn18.IconColor = System.Drawing.Color.Green;
             this.btn18.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn18.Location = new System.Drawing.Point(277, 172);
+            this.btn18.Location = new System.Drawing.Point(364, 171);
             this.btn18.Name = "btn18";
             this.btn18.Size = new System.Drawing.Size(52, 56);
             this.btn18.TabIndex = 2;
@@ -393,7 +384,7 @@ namespace FrontEndGUI
             this.btn17.IconChar = FontAwesome.Sharp.IconChar.Chair;
             this.btn17.IconColor = System.Drawing.Color.Green;
             this.btn17.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn17.Location = new System.Drawing.Point(219, 172);
+            this.btn17.Location = new System.Drawing.Point(306, 171);
             this.btn17.Name = "btn17";
             this.btn17.Size = new System.Drawing.Size(52, 56);
             this.btn17.TabIndex = 1;
@@ -407,7 +398,7 @@ namespace FrontEndGUI
             this.btn16.IconChar = FontAwesome.Sharp.IconChar.Chair;
             this.btn16.IconColor = System.Drawing.Color.Green;
             this.btn16.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn16.Location = new System.Drawing.Point(161, 172);
+            this.btn16.Location = new System.Drawing.Point(248, 171);
             this.btn16.Name = "btn16";
             this.btn16.Size = new System.Drawing.Size(52, 56);
             this.btn16.TabIndex = 0;
@@ -420,21 +411,18 @@ namespace FrontEndGUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(803, 610);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.Gainsboro;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SeatSelection";
             this.Text = "SeatSelection";
-            this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picMovie)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private FontAwesome.Sharp.IconButton btn5;
         private FontAwesome.Sharp.IconButton btn4;
@@ -457,8 +445,7 @@ namespace FrontEndGUI
         private FontAwesome.Sharp.IconButton btn17;
         private FontAwesome.Sharp.IconButton btn16;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ColumnHeader movieName;
-        private System.Windows.Forms.ColumnHeader seatId;
-        internal System.Windows.Forms.ListView listOrder;
+        private System.Windows.Forms.PictureBox picMovie;
+        private System.Windows.Forms.Button btnContinue;
     }
 }

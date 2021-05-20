@@ -9,7 +9,7 @@ namespace Backend.Entities
     public static class Order
     {
         public static Customer Customer { get; set; }
-        public static List<EventReservation> Reservations { get; set; }
+        public static List<EventReservation> Reservations { get; set; } = new List<EventReservation>();
 
         public static string MovieName { get; set; }
         public static int EventId { get; set; }
