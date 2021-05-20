@@ -44,6 +44,7 @@ namespace Backend.Entities
                     context.Seats.Add(seat);
                 }
                 context.SaveChanges();
+
             }
         }
     }
