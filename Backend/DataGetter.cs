@@ -31,8 +31,28 @@ namespace Backend
         {
             using (var context = new CinemaContext("CinemaContext"))
             {
-                var seats = context.Seats.Where(e => e.EventReservation.EventId == Order.EventId).ToList();
+                var seats = context.Seats.Where(e => e.EventReservationId == Order.EventId).ToList();
                 return seats;
+            }
+        }
+
+        public Customer GetCustomer(string phoneNr)
+        {
+            using (var context = new CinemaContext("CinemaContext"))
+            {
+                var customer = context.Customers.Where(p => p.PhoneNr == phoneNr).FirstOrDefault();
+                return customer;
+            }
+        }
+
+        public Event GetEvent(DateTime start, string movieName)
+        {
+            using (var context = new CinemaContext("CinemaContext"))
+            {
+                var events = context.Events.Where(e => e.StartTime == start)
+                    .Where(e => e.Movie.Name == movieName)
+                    .First();
+                return events;
             }
         }
     }

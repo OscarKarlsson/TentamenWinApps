@@ -17,15 +17,17 @@ namespace FrontEndGUI
         SeatSelection childFormSeat = new SeatSelection();
         MovieSelection childFormMovie = new MovieSelection();
         TimeSelection childFormTime = new TimeSelection();
+        CustomerInfo childFormCustomer = new CustomerInfo();
         static Random rnd = new Random();
         CinemaContext db = new CinemaContext("CinemaContext");
         public Form1()
         {
             InitializeComponent();
             CuztomizeDesign();
-            if (db.Database.CreateIfNotExists()) CreateData();
+            if (db.Database.CreateIfNotExists()) CreateData();            
             childFormMovie.formEvent += OpenChildFormTime;
             childFormTime.formEvent += OpenChildFormSeat;
+            childFormSeat.formEvent += OpenChildFormCustomer;
         }
         private void CuztomizeDesign()
         {
@@ -54,11 +56,12 @@ namespace FrontEndGUI
         #region CreateDataRegion
         private void CreateData()
         {
-            using (db)
+            using (var context = new CinemaContext("CinemaContext"))
             {
-                CreateMovies(db);
-                CreateAuditoriums(db);
-                CreateEvents(db);
+                CreateMovies(context);
+                CreateAuditoriums(context);
+                CreateEvents(context);
+                CreateCustomers(context);
             }
 
         }
@@ -249,6 +252,45 @@ namespace FrontEndGUI
 
 
         }
+        private void CreateCustomers(CinemaContext context)
+        {
+            var customer = new Customer()
+            {
+                FirstName = "Oscar",
+                LastName = "Karlsson",
+                PhoneNr = "076555555"
+            };
+            context.Customers.Add(customer);
+            var customer1 = new Customer()
+            {
+                FirstName = "Filip",
+                LastName = "Ekberg",
+                PhoneNr = "076123456"
+            };
+            context.Customers.Add(customer1);
+            var customer2 = new Customer()
+            {
+                FirstName = "Josefine",
+                LastName = "Holstensson",
+                PhoneNr = "076999999"
+            };
+            context.Customers.Add(customer2);
+            var customer3 = new Customer()
+            {
+                FirstName = "Lennart",
+                LastName = "Josefsson",
+                PhoneNr = "0761234"
+            };
+            context.Customers.Add(customer3);
+            var customer4 = new Customer()
+            {
+                FirstName = "Oscar",
+                LastName = "Svensson",
+                PhoneNr = "07612345"
+            };
+            context.Customers.Add(customer4);
+            context.SaveChanges();
+        }
         #endregion
         #region BookingSubMenu
         private void btnTickets_Click(object sender, EventArgs e)
@@ -324,6 +366,10 @@ namespace FrontEndGUI
             OpenChildForm(childFormTime);
             childFormTime.LoadButtons();
         }
-
+        internal void OpenChildFormCustomer(object sender, FormEventArgs args)
+        {
+            OpenChildForm(childFormCustomer);
+            childFormCustomer.LoadViewList();
+        }
     }
 }

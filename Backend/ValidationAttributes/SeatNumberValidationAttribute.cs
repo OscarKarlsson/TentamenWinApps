@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Backend.ValidationAttributes
 {
-    class SeatNumberValidationAttribute : ValidationAttribute
+    public class SeatNumberValidationAttribute : ValidationAttribute
     {
         public static ValidationResult IsValidSeatNumber(int seatNr)
         {

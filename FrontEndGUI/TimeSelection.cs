@@ -83,25 +83,29 @@ namespace FrontEndGUI
 
         private void btn20_Click(object sender, EventArgs e)
         {
-            Order.EventId = btn20id;
+            Event currEvent = getData.GetEvent(new DateTime(2021, 05, 14, 20, 00, 00), Order.MovieName);
+            Order.EventId = currEvent.ID;
             formEvent.Invoke(this, EventArgs);
         }
 
         private void btn22_Click(object sender, EventArgs e)
         {
-            Order.EventId = btn22id;
+            Event currEvent = getData.GetEvent(new DateTime(2021, 05, 14, 22, 00, 00), Order.MovieName);
+            Order.EventId = currEvent.ID;
             formEvent.Invoke(this, EventArgs);
         }
 
         private void btn00_Click(object sender, EventArgs e)
         {
-            Order.EventId = btn00id;
+            Event currEvent = getData.GetEvent(new DateTime(2021, 05, 15, 00, 00, 00), Order.MovieName);
+            Order.EventId = currEvent.ID;
             formEvent.Invoke(this, EventArgs);
         }
 
         private void btn02_Click(object sender, EventArgs e)
         {
-            Order.EventId = btn02id;
+            Event currEvent = getData.GetEvent(new DateTime(2021, 05, 15, 02, 00, 00), Order.MovieName);
+            Order.EventId = currEvent.ID;
             formEvent.Invoke(this, EventArgs);
         }
     }
