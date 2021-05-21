@@ -35,16 +35,17 @@ namespace FrontEndGUI
         }
         internal void LoadSeatButtons()
         {
-            var seat = GetData.GetSeats();
+            var reservations = GetData.GetSeats();
             int tempName;
             foreach (Control c in panel2.Controls)
             {
                 if (c is FontAwesome.Sharp.IconButton)
                 {
+                    c.Enabled = true;
                     tempName = int.Parse(c.Name.Remove(0, 3));
-                    foreach (var item in seat)
+                    foreach (var item in reservations)
                     {
-                        if (item.SeatNumber == tempName)
+                        if (item.SeatId == tempName)
                         {
                             c.Enabled = false;
                         }

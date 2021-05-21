@@ -28,22 +28,21 @@ namespace Backend.Entities
                 {
                     reservation.CustomerId = customer.ID;
                     context.EventReservations.Add(reservation);
+                    context.SaveChanges();
                 }
-                context.SaveChanges();
+                
             }  
         }
-        public void SetSeats()
+        public void RemoveEventReservations(int seat)
         {
             using (var context = new CinemaContext("CinemaContext"))
             {
-                Seat seat = new Seat();
-                seat.EventReservationId = Order.EventId;
-                foreach (var seats in Order.Reservations)
-                {
-                    seat.SeatNumber = seats.SeatId;
-                    context.Seats.Add(seat);
-                }
+                var reservation = context.EventReservations.Where(c => c.CustomerId == Order.Customer.ID)
+                    .Where(s => s.SeatId == seat).First();
+                
+                context.EventReservations.Remove(reservation);
                 context.SaveChanges();
+                
 
             }
         }

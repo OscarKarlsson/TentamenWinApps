@@ -288,7 +288,7 @@ namespace FrontEndGUI
             this.Controls.Add(this.panelSideMenu);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Halloween Nights";
             this.panelSideMenu.ResumeLayout(false);
             this.panelSubHistory.ResumeLayout(false);
             this.panelSubCinema.ResumeLayout(false);

@@ -27,15 +27,50 @@ namespace Backend
                 return events;
             }
         }
-        public List<Seat> GetSeats()
+        public List<EventReservation> GetSeats()
         {
             using (var context = new CinemaContext("CinemaContext"))
             {
-                var seats = context.Seats.Where(e => e.EventReservationId == Order.EventId).ToList();
-                return seats;
+                var reservations = context.EventReservations.Where(e => e.EventId == Order.EventId).ToList();
+                return reservations;
             }
         }
-
+        public IQueryable<HistoryInfo> GetHistory(string phoneNr, CinemaContext context)
+        {
+            var query = from eventRes in context.EventReservations
+                        join events in context.Events on eventRes.EventId equals events.ID
+                        join movies in context.Movies on events.MovieId equals movies.ID
+                        join customer in context.Customers on eventRes.CustomerId equals customer.ID
+                        where customer.PhoneNr.Contains(phoneNr)
+                        select new HistoryInfo { EventId = events.ID, movieName = movies.Name, StartTime = events.StartTime };
+            return query;
+            //var query = from history in context.ReservationHistoriy
+            //            join events in context.Events on history.EventId equals events.ID
+            //            join movies in context.Movies on events.MovieId equals movies.ID
+            //            where history.PhoneNr.Contains(phoneNr)
+            //            select new HistoryInfo { EventId = events.ID, movieName = movies.Name, StartTime = events.StartTime };
+            //return query;            
+        }
+        public IQueryable<HistoryInfo> GetHistoryRemove(CinemaContext context)
+        {
+            var query = from eventsRes in context.EventReservations
+                        join events in context.Events on eventsRes.EventId equals events.ID
+                        join movies in context.Movies on events.MovieId equals movies.ID                        
+                        join customer in context.Customers on eventsRes.CustomerId equals customer.ID
+                        where eventsRes.Customer.PhoneNr.Contains(Order.Customer.PhoneNr)
+                        where eventsRes.EventId.Equals(Order.EventIdRemove)
+                        select new HistoryInfo { EventId = events.ID, movieName = movies.Name, StartTime = events.StartTime, Seat = eventsRes.SeatId, CustomerId = customer.ID };
+            return query;
+            //var query = from history in context.ReservationHistoriy
+            //            join events in context.Events on history.EventId equals events.ID
+            //            join movies in context.Movies on events.MovieId equals movies.ID
+            //            join eventRes in context.EventReservations on events.ID equals eventRes.EventId
+            //            join customer in context.Customers on eventRes.CustomerId equals customer.ID
+            //            where eventRes.Customer.PhoneNr.Contains(Order.Customer.PhoneNr)
+            //            where eventRes.EventId.Equals(Order.EventIdRemove)
+            //            select new HistoryInfo { EventId = events.ID, movieName = movies.Name, StartTime = events.StartTime, Seat = eventRes.SeatId, CustomerId = customer.ID };
+            //return query;
+        }
         public Customer GetCustomer(string phoneNr)
         {
             using (var context = new CinemaContext("CinemaContext"))
@@ -44,7 +79,7 @@ namespace Backend
                 return customer;
             }
         }
-
+        
         public Event GetEvent(DateTime start, string movieName)
         {
             using (var context = new CinemaContext("CinemaContext"))

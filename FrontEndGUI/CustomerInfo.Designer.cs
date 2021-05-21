@@ -147,6 +147,7 @@ namespace FrontEndGUI
             this.BtnRemove.TabIndex = 1;
             this.BtnRemove.Text = "Remove order";
             this.BtnRemove.UseVisualStyleBackColor = false;
+            this.BtnRemove.Click += new System.EventHandler(this.BtnRemove_Click);
             // 
             // panel2
             // 

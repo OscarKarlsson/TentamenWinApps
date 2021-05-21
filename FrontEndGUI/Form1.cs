@@ -18,16 +18,21 @@ namespace FrontEndGUI
         MovieSelection childFormMovie = new MovieSelection();
         TimeSelection childFormTime = new TimeSelection();
         CustomerInfo childFormCustomer = new CustomerInfo();
+        ChangeBooking childFormChange = new ChangeBooking();
+        RemoveBooking childFormRemove = new RemoveBooking();
         static Random rnd = new Random();
         CinemaContext db = new CinemaContext("CinemaContext");
         public Form1()
         {
             InitializeComponent();
             CuztomizeDesign();
-            if (db.Database.CreateIfNotExists()) CreateData();            
+            if (db.Database.CreateIfNotExists()) { }
+                
+            CreateData();
             childFormMovie.formEvent += OpenChildFormTime;
             childFormTime.formEvent += OpenChildFormSeat;
             childFormSeat.formEvent += OpenChildFormCustomer;
+            childFormChange.formEvent += OpenChildFormRemove;
         }
         private void CuztomizeDesign()
         {
@@ -301,6 +306,8 @@ namespace FrontEndGUI
 
         private void btnChangeBooking_Click(object sender, EventArgs e)
         {
+            OpenChildForm(childFormChange);
+            childFormChange.listView1.Items.Clear();
             HideSubMenu();
         }
 
@@ -370,6 +377,15 @@ namespace FrontEndGUI
         {
             OpenChildForm(childFormCustomer);
             childFormCustomer.LoadViewList();
+        }
+        internal void OpenChildFormRemove(object sender, FormEventArgs args)
+        {
+            OpenChildForm(childFormRemove);
+            childFormRemove.LoadListView();
+        }
+        internal void CloseChildForm(object sender, FormEventArgs args)
+        {
+
         }
     }
 }

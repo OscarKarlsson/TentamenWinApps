@@ -91,11 +91,15 @@ namespace FrontEndGUI
             }
             else
             {
-                txtPhone.BackColor = Color.Red;
+                txtFirst.BackColor = Color.Red;
             }
             if (txtFirst.BackColor == Color.Green && txtLast.BackColor == Color.Green)
             {
                 btnSubmit.Enabled = true;
+            }
+            else
+            {
+                btnSubmit.Enabled = false;
             }
         }
 
@@ -112,6 +116,10 @@ namespace FrontEndGUI
             if (txtFirst.BackColor == Color.Green && txtLast.BackColor == Color.Green)
             {
                 btnSubmit.Enabled = true;
+            }
+            else
+            {
+                btnSubmit.Enabled = false;
             }
         }
 
@@ -131,9 +139,17 @@ namespace FrontEndGUI
             DataSetter SetData = new DataSetter();
             SetData.SetCustomer(Order.Customer.PhoneNr, Order.Customer.FirstName,Order.Customer.LastName);
             SetData.SetEventReservation();
-            SetData.SetSeats();
             MessageBox.Show($"You booked {Order.Reservations.Count} ticket(s).");
             Order.RemoveData();
+            listSeats.Items.Clear();
+            this.Hide();
+        }
+
+        private void BtnRemove_Click(object sender, EventArgs e)
+        {
+            listSeats.Items.Clear();
+            Order.RemoveData();
+            this.Hide();
         }
     }
 }

@@ -18,6 +18,6 @@ namespace Backend.Entities
         public DbSet<Event> Events { get; set; }
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Seat> Seats { get; set; }
-
+        public DbSet<ReservationHistory> ReservationHistoriy { get; set; }
     }
 }

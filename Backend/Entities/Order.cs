@@ -12,13 +12,14 @@ namespace Backend.Entities
         public static List<EventReservation> Reservations { get; set; } = new List<EventReservation>();
         public static string MovieName { get; set; }
         public static int EventId { get; set; }
-
+        public static int EventIdRemove { get; set; }
         static public void RemoveData()
         {
             MovieName = null;
             EventId = 0;
             Customer = null;
             Reservations.Clear();
+            EventIdRemove = 0;
         }
     }
 }
