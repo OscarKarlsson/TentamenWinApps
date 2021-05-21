@@ -53,12 +53,11 @@ namespace FrontEndGUI
                         {
                             listView1.Items.Add(new ListViewItem(
                             new string[] { item.EventId.ToString(), item.movieName, item.StartTime.ToString() }));
-                        }                   
+                        }
                     }
                     phoneNr = textBox1.Text;
                 }
             }
-            
         }
         private bool ListChecker(int id)
         {

@@ -42,8 +42,6 @@ namespace Backend.Entities
                 
                 context.EventReservations.Remove(reservation);
                 context.SaveChanges();
-                
-
             }
         }
     }
