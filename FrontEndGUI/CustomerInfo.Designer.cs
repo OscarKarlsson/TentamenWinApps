@@ -44,6 +44,7 @@ namespace FrontEndGUI
             this.seat = new System.Windows.Forms.ColumnHeader();
             this.btnCheck = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.EventId = new System.Windows.Forms.ColumnHeader();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -162,6 +163,7 @@ namespace FrontEndGUI
             // 
             this.listSeats.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.listSeats.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.EventId,
             this.movie,
             this.seat});
             this.listSeats.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -178,7 +180,7 @@ namespace FrontEndGUI
             // movie
             // 
             this.movie.Text = "Movie";
-            this.movie.Width = 150;
+            this.movie.Width = 120;
             // 
             // seat
             // 
@@ -213,6 +215,11 @@ namespace FrontEndGUI
             this.btnSubmit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            // 
+            // EventId
+            // 
+            this.EventId.Text = "Id";
+            this.EventId.Width = 40;
             // 
             // CustomerInfo
             // 
@@ -258,5 +265,6 @@ namespace FrontEndGUI
         private System.Windows.Forms.ColumnHeader movie;
         private System.Windows.Forms.ColumnHeader seat;
         private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.ColumnHeader EventId;
     }
 }

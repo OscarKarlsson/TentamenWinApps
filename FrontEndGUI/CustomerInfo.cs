@@ -38,8 +38,9 @@ namespace FrontEndGUI
         {
             foreach (var item in Order.Reservations)
             {
-                listSeats.Items.Add(new ListViewItem(new string[] { Order.MovieName, item.SeatId.ToString() }));
+                listSeats.Items.Add(new ListViewItem(new string[] { Order.EventId.ToString(), Order.MovieName, item.SeatId.ToString() }));
             }
+            Order.Reservations.Clear();
         }
 
         private void btnCheck_Click(object sender, EventArgs e)
@@ -144,7 +145,13 @@ namespace FrontEndGUI
             listSeats.Items.Clear();
             this.Hide();
         }
-
+        private void LoadEventReservations()
+        {
+            foreach (ListViewItem item in listSeats.Items)
+            {
+                Order.Reservations.Add(new EventReservation() { EventId })
+            }
+        }
         private void BtnRemove_Click(object sender, EventArgs e)
         {
             listSeats.Items.Clear();

@@ -329,6 +329,7 @@ namespace FrontEndGUI
                         Order.Reservations.Add(new EventReservation
                         { EventId = Order.EventId, SeatId = int.Parse(c.Name.Remove(0, 3)) });
                         ((FontAwesome.Sharp.IconButton)c).IconColor = Color.Green;
+                        //Change EventReservation
                     }
                     
                 }
