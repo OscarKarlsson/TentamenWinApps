@@ -1,5 +1,6 @@
 ﻿using Backend;
 using Backend.Entities;
+using FrontEndGUI.Events;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,8 @@ namespace FrontEndGUI
     public partial class CustomerInfo : Form
     {
         protected override bool ScaleChildren { get; } = false;
+        public event EventHandler<FormEventArgs> formEvent;
+        private FormEventArgs EventArgs = new FormEventArgs();
         DataGetter GetData = new DataGetter();
         Customer activeCustomer = new Customer();
         Regex regexPhone = new Regex(@"^\d{3,10}$");
@@ -117,10 +120,12 @@ namespace FrontEndGUI
             if (txtFirst.BackColor == Color.Green && txtLast.BackColor == Color.Green)
             {
                 btnSubmit.Enabled = true;
+                button1.Enabled = true;
             }
             else
             {
                 btnSubmit.Enabled = false;
+                button1.Enabled = true;
             }
         }
 
@@ -130,6 +135,7 @@ namespace FrontEndGUI
             Order.Customer.LastName = txtLast.Text;
             Order.Customer.PhoneNr = txtPhone.Text;
             BtnCheckout.Enabled = true;
+            button1.Enabled = true;
         }
 
         private void BtnCheckout_Click(object sender, EventArgs e)
@@ -139,6 +145,7 @@ namespace FrontEndGUI
             Order.Customer.PhoneNr = txtPhone.Text;
             DataSetter SetData = new DataSetter();
             SetData.SetCustomer(Order.Customer.PhoneNr, Order.Customer.FirstName,Order.Customer.LastName);
+            LoadEventReservations();
             SetData.SetEventReservation();
             MessageBox.Show($"You booked {Order.Reservations.Count} ticket(s).");
             Order.RemoveData();
@@ -147,9 +154,11 @@ namespace FrontEndGUI
         }
         private void LoadEventReservations()
         {
+            Order.Reservations.Clear();
+            
             foreach (ListViewItem item in listSeats.Items)
             {
-                Order.Reservations.Add(new EventReservation() { EventId })
+                Order.Reservations.Add(new EventReservation() { EventId = int.Parse(item.SubItems[0].Text), SeatId = int.Parse(item.SubItems[2].Text) });
             }
         }
         private void BtnRemove_Click(object sender, EventArgs e)
@@ -157,6 +166,11 @@ namespace FrontEndGUI
             listSeats.Items.Clear();
             Order.RemoveData();
             this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            formEvent.Invoke(this, EventArgs);
         }
     }
 }

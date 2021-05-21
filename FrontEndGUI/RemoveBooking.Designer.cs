@@ -121,13 +121,12 @@ namespace FrontEndGUI
         }
 
         #endregion
-
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader movie;
         private System.Windows.Forms.ColumnHeader startTime;
         private System.Windows.Forms.ColumnHeader seatId;
         private System.Windows.Forms.Button BtnRemove;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ColumnHeader eventId;
+        internal System.Windows.Forms.ListView listView1;
     }
 }

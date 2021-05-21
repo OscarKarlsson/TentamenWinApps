@@ -82,6 +82,7 @@ namespace FrontEndGUI
             // 
             // textBox1
             // 
+            this.textBox1.ForeColor = System.Drawing.Color.Gainsboro;
             this.textBox1.Location = new System.Drawing.Point(218, 75);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(208, 30);

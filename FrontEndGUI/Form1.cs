@@ -33,6 +33,7 @@ namespace FrontEndGUI
             childFormTime.formEvent += OpenChildFormSeat;
             childFormSeat.formEvent += OpenChildFormCustomer;
             childFormChange.formEvent += OpenChildFormRemove;
+            childFormCustomer.formEvent += btnTickets_Click;
         }
         private void CuztomizeDesign()
         {
@@ -301,6 +302,13 @@ namespace FrontEndGUI
         private void btnTickets_Click(object sender, EventArgs e)
         {
             OpenChildForm(childFormMovie);
+            childFormCustomer.txtPhone.Text = "";
+            childFormCustomer.txtPhone.Enabled = true;
+            childFormCustomer.btnCheck.Enabled = true;
+            childFormCustomer.button1.Enabled = false;
+            childFormCustomer.BtnCheckout.Enabled = false;
+            childFormCustomer.txtFirst.Text = "";
+            childFormCustomer.txtLast.Text = "";
             HideSubMenu();
         }
 
@@ -308,6 +316,7 @@ namespace FrontEndGUI
         {
             OpenChildForm(childFormChange);
             childFormChange.listView1.Items.Clear();
+            childFormRemove.listView1.Items.Clear();
             HideSubMenu();
         }
 
@@ -382,10 +391,6 @@ namespace FrontEndGUI
         {
             OpenChildForm(childFormRemove);
             childFormRemove.LoadListView();
-        }
-        internal void CloseChildForm(object sender, FormEventArgs args)
-        {
-
         }
     }
 }

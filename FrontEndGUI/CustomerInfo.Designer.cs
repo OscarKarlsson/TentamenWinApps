@@ -36,15 +36,16 @@ namespace FrontEndGUI
             this.txtFirst = new System.Windows.Forms.TextBox();
             this.txtLast = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.BtnCheckout = new System.Windows.Forms.Button();
             this.BtnRemove = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.listSeats = new System.Windows.Forms.ListView();
+            this.EventId = new System.Windows.Forms.ColumnHeader();
             this.movie = new System.Windows.Forms.ColumnHeader();
             this.seat = new System.Windows.Forms.ColumnHeader();
             this.btnCheck = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.EventId = new System.Windows.Forms.ColumnHeader();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -114,6 +115,7 @@ namespace FrontEndGUI
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.BtnCheckout);
             this.panel1.Controls.Add(this.BtnRemove);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -122,13 +124,27 @@ namespace FrontEndGUI
             this.panel1.Size = new System.Drawing.Size(803, 125);
             this.panel1.TabIndex = 6;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.button1.Location = new System.Drawing.Point(177, 21);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(156, 79);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Continue";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // BtnCheckout
             // 
             this.BtnCheckout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.BtnCheckout.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.BtnCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCheckout.ForeColor = System.Drawing.Color.Gainsboro;
-            this.BtnCheckout.Location = new System.Drawing.Point(237, 16);
+            this.BtnCheckout.Location = new System.Drawing.Point(339, 21);
             this.BtnCheckout.Name = "BtnCheckout";
             this.BtnCheckout.Size = new System.Drawing.Size(156, 79);
             this.BtnCheckout.TabIndex = 2;
@@ -142,7 +158,7 @@ namespace FrontEndGUI
             this.BtnRemove.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.BtnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnRemove.ForeColor = System.Drawing.Color.Gainsboro;
-            this.BtnRemove.Location = new System.Drawing.Point(399, 16);
+            this.BtnRemove.Location = new System.Drawing.Point(501, 21);
             this.BtnRemove.Name = "BtnRemove";
             this.BtnRemove.Size = new System.Drawing.Size(156, 79);
             this.BtnRemove.TabIndex = 1;
@@ -176,6 +192,11 @@ namespace FrontEndGUI
             this.listSeats.TabIndex = 0;
             this.listSeats.UseCompatibleStateImageBehavior = false;
             this.listSeats.View = System.Windows.Forms.View.Details;
+            // 
+            // EventId
+            // 
+            this.EventId.Text = "Id";
+            this.EventId.Width = 40;
             // 
             // movie
             // 
@@ -216,11 +237,6 @@ namespace FrontEndGUI
             this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
-            // EventId
-            // 
-            this.EventId.Text = "Id";
-            this.EventId.Width = 40;
-            // 
             // CustomerInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -251,20 +267,21 @@ namespace FrontEndGUI
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtFirst;
-        private System.Windows.Forms.TextBox txtLast;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button BtnCheckout;
-        private System.Windows.Forms.Button BtnRemove;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ListView listSeats;
-        private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.ColumnHeader movie;
         private System.Windows.Forms.ColumnHeader seat;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.ColumnHeader EventId;
+        internal System.Windows.Forms.TextBox txtPhone;
+        internal System.Windows.Forms.TextBox txtFirst;
+        internal System.Windows.Forms.TextBox txtLast;
+        internal System.Windows.Forms.Button btnCheck;
+        internal System.Windows.Forms.Button BtnCheckout;
+        internal System.Windows.Forms.Button BtnRemove;
+        internal System.Windows.Forms.Button button1;
     }
 }

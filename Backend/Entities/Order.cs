@@ -17,7 +17,6 @@ namespace Backend.Entities
         {
             MovieName = null;
             EventId = 0;
-            Customer = null;
             Reservations.Clear();
             EventIdRemove = 0;
         }

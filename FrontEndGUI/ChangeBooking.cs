@@ -25,7 +25,7 @@ namespace FrontEndGUI
             InitializeComponent();
             btnCheck.Enabled = false;
         }
-
+        private string phoneNr;
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             if (regexPhone.IsMatch(textBox1.Text))
@@ -55,6 +55,7 @@ namespace FrontEndGUI
                             new string[] { item.EventId.ToString(), item.movieName, item.StartTime.ToString() }));
                         }                   
                     }
+                    phoneNr = textBox1.Text;
                 }
             }
             
@@ -73,7 +74,7 @@ namespace FrontEndGUI
         {
             var item = listView1.SelectedItems[0];
             Order.EventIdRemove = int.Parse(item.SubItems[0].Text);
-            Order.Customer.PhoneNr = textBox1.Text;
+            Order.Customer.PhoneNr = phoneNr;
             textBox1.Text = "";
             formEvent.Invoke(this, EventArgs);
         }
